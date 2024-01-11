@@ -1,0 +1,41 @@
+name: buildbook
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+    
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: '0'
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: 安装依赖
+      run: |
+        npm install
+    - name: 打包
+      run: |
+        npm run build
+    -
+        name: 部署到 GitHub Pages
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v3
+        with:
+          target_branch: gh-pages
+          build_dir: dist
+          jekyll: false
+          fqdn: love.ismy.wang
+        env:
+          GITHUB_TOKEN: ${{ secrets.THE_GITHUB_TOKEN }}
