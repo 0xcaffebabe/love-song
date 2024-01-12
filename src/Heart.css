@@ -1,0 +1,71 @@
+.frame {
+  position: relative;
+  width: 40px;
+  height: 30px;
+}
+
+.left,
+.right {
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.left {
+  left: 3.5px;
+}
+
+.right {
+  right: 3.5px;
+  z-index: -1;
+}
+
+.bottom {
+  bottom: 3.6px;
+  left: 10px;
+  width: 20px;
+  height: 20px;
+  transform: rotate(45deg);
+  z-index: -1;
+}
+
+.heart {
+  position: absolute;
+  box-shadow: 0 0 4px #d5093c; /* 调整阴影大小 */
+  animation: beat .4s ease infinite normal;
+  background: linear-gradient(-90deg, #F50A45 0%, #d5093c 40%);
+}
+
+/* 其余代码不变 */
+
+@keyframes beat {
+  0% {
+      transform: scale(1) rotate(225deg);
+      box-shadow: 0 0 40px #d5093c;
+  }
+
+  50% {
+      transform: scale(1.1) rotate(225deg);
+      box-shadow: 0 0 70px #d5093c;
+  }
+
+  100% {
+      transform: scale(1) rotate(225deg);
+      box-shadow: 0 0 40px #d5093c;
+      ;
+  }
+}
+
+.word {
+  position: absolute;
+  width: 50%;
+  top: 75%;
+  left: 25%;
+  text-align: center;
+  transform: translateY(-50%);
+  font-family: 'Love Ya Like A Sister', cursive;
+  font-size: 40px;
+  color: #c70012;
+  padding: 0 20px;
+}
