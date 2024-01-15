@@ -22,7 +22,15 @@ class App extends React.Component<{}, {songList: [string,number][]}> {
     const { songList } = this.state
     return (
       <div style={{textAlign: 'center', fontSize: '18px'}}>
-        <div><Heart />love song<Heart /></div>
+        <div style={{marginTop: '20px'}}>
+          <div style={{float:'left', marginLeft: '25%'}}>
+            <Heart />
+          </div>
+          love song
+          <div style={{float:'right', marginRight: '25%'}}>
+            <Heart />
+          </div>
+          </div>
         {songList.map(song =><div style={{paddingBottom: '10px', color: generateColorByValue(songList[0][1], song[1])}}>{song[0]}: {song[1]}</div>)}
       </div>
     );
