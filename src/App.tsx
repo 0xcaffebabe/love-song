@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Heart from './Heart';
+import RandomEvent from './RandomEvent';
 
 function generateColorByValue(max: number, value: number) {
   const colors = ['#69f0ae','#64ffda','#18ffff','#40c4ff','#448aff','#536dfe','#7c4dff','#e040fb','#ff4081','#ff5252']
@@ -22,6 +23,7 @@ class App extends React.Component<{}, {songList: [string,number][]}> {
     const { songList } = this.state
     return (
       <div style={{textAlign: 'center', fontSize: '18px'}}>
+        <RandomEvent />
         <div style={{marginTop: '20px'}}>
           <div style={{float:'left', marginLeft: '25%'}}>
             <Heart />
